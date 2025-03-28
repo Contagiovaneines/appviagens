@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "228208275144",
+    "project_id": "appviagem-c70e2",
+    "storage_bucket": "appviagem-c70e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228208275144:android:5e20b7a2c6059357a7fffd",
+        "android_client_info": {
+          "package_name": "com.curso.appviagem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzbmrPSEjAJg2wPYh8SD_DTf0uCgW0tJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
