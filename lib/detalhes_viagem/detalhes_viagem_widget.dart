@@ -308,6 +308,7 @@ class _DetalhesViagemWidgetState extends State<DetalhesViagemWidget> {
                                         fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),

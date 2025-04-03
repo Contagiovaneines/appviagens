@@ -47,8 +47,8 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<ViagensRecord>(
-      stream: ViagensRecord.getDocument(widget.viagemRef!),
+    return FutureBuilder<ViagensRecord>(
+      future: ViagensRecord.getDocumentOnce(widget.viagemRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -316,8 +316,8 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
                                   ),
                                 ),
                                 Container(
-                                  width: 120.0,
-                                  height: 40.0,
+                                  width: 150.0,
+                                  height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -332,7 +332,7 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
                                               .secondaryText
                                           : FlutterFlowTheme.of(context)
                                               .alternate,
-                                      size: 24.0,
+                                      size: 23.0,
                                     ),
                                     incrementIconBuilder: (enabled) => Icon(
                                       Icons.add_rounded,
@@ -340,7 +340,7 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .alternate,
-                                      size: 24.0,
+                                      size: 23.0,
                                     ),
                                     countBuilder: (count) => Text(
                                       count.toString(),
@@ -348,13 +348,15 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
                                           .titleLarge
                                           .override(
                                             fontFamily: 'Inter Tight',
+                                            fontSize: 19.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                    count: _model.countControllerValue ??= 0,
+                                    count: _model.countControllerValue ??=
+                                        editarViagemViagensRecord.investimento,
                                     updateCount: (count) => safeSetState(() =>
                                         _model.countControllerValue = count),
-                                    stepSize: 1,
+                                    stepSize: 100,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
@@ -375,9 +377,11 @@ class _EditarViagemWidgetState extends State<EditarViagemWidget> {
                                       await editarViagemViagensRecord.reference
                                           .update(createViagensRecordData(
                                         descricao:
-                                            editarViagemViagensRecord.descricao,
-                                        vontade:
-                                            editarViagemViagensRecord.vontade,
+                                            _model.descicaoTextController.text,
+                                        vontade: int.tryParse(
+                                            _model.vontadeTextController.text),
+                                        investimento:
+                                            _model.countControllerValue,
                                       ));
                                       await showDialog(
                                         context: context,

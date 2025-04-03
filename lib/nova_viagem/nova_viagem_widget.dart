@@ -436,8 +436,8 @@ class _NovaViagemWidgetState extends State<NovaViagemWidget> {
                                     imgUrl: _model.imgUrlTextController.text,
                                     vontade: int.tryParse(
                                         _model.vontadeTextController.text),
-                                    investimento:
-                                        _model.investimentoValue?.toDouble(),
+                                    investimento: _model.investimentoValue,
+                                    visitado: false,
                                   ));
                               await showDialog(
                                 context: context,
